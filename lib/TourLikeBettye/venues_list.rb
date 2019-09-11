@@ -12,6 +12,12 @@ require 'open-uri'
     jambase_noko = Nokogiri::HTML(open("https://www.jambase.com/band/bettye-lavette"))
 # binding.pry
      bettyes_venues << jambase_noko.css('.jbshow jbevent')
+     attributes = {
+         :venue
+         :city
+         :capacity (rand 200..2500)
+         
+     }
      p bettyes_venues
 
 # end

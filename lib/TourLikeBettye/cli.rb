@@ -30,6 +30,9 @@ module BettyToursList
 
         def menu 
             puts <<-MENU
+            cities
+            produces list of venues
+            last performance date
             1. Blues Touring
             2. Jazz Touring
             3. Alt RB/Soul Touring

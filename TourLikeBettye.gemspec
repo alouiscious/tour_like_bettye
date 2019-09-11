@@ -12,10 +12,10 @@ Gem::Specification.new do |spec|
   spec.description   = %q{TODO: Write a longer description or delete this line.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
-  spec.metadata["allowed_push_host"] = "'https://github.com/alouiscious/cli-data-gem-assessment-online-web-pt-071519'"
+  spec.metadata["allowed_push_host"] = "https://github.com/alouiscious/tour_like_bettye"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/alouiscious/cli-data-gem-assessment-online-web-pt-071519"
+  spec.metadata["source_code_uri"] = "https://github.com/alouiscious/tour_like_bettye"
   spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
