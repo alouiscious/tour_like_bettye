@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-
-# rename with project name  for user ease
-
-require "bundler/setup"
-require "TourLikeBettye"
-
-TourLikeBettye::CLI.new.call

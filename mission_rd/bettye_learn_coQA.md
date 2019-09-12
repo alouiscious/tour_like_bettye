@@ -1,3 +1,8 @@
+open uri would l=not install
+i used gem install open-uri
+the correct install is open-url
+
+
 gemfile not found
 find out more about setting tests up in the tourlikebettye_spec.rb file 
 
