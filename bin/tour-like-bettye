@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+puts "Hello World"
+# rename with project name  for user ease
+
+require "bundler/setup"
+require "TourLikeBettye"
+
+
+CLI.new.start
