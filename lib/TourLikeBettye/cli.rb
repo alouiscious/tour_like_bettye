@@ -1,24 +1,27 @@
-module TourBettyeMenu
+require_relative './scraper'
+
+# module TourBettyeMenu
     
-    class  CLI
+    class CLI
         
         def start #these are things that only run once
 
-            puts "Hey welcome to the Tour Like Bettye app!\n
-            This program is here to help music performances tour like a pro."
-            # Scraper.
+            puts "Welcome to the Tour Like Bettye app!\n
+            This program is here to help music performers tour like a pro."
+            # binding.pry
+            BettyeScraper.bettye_venue_list
             @input = nil
             menu
         end
 
         def menu
             while @input != "exit" && @input != "quit"
-                get_input(
-                    valid_choice: ["1", "2", "3", "4")
+                get_input(["1", "2", "3", "4"])
                 if @input == "menu"
                     menu
                 elsif @input == "1"
                     puts "Blues Touring"
+                    show_venues
                 elsif @input == "2"
                     puts "Jazz Touring"
                 elsif @input == "3"
@@ -28,7 +31,7 @@ module TourBettyeMenu
                 elsif @input == "exit" || @input == "quit"
                 else
                     puts "\nSorry, please try again"
-                    menu # good way to set up recursion
+                    menu    # good way to set up recursion
                 end 
             end
         end
@@ -46,17 +49,18 @@ module TourBettyeMenu
             MENU
         end
         
-        def get_input(option)
+        def get_input(valid_choices:)
             @input = gets.strip.downcase
             return if @input == "exit" || @input == "quit"
-            puts error_message unless valid_choice.include?(@input)
+            puts error_message unless valid_choices.include?(@input)
             @input
 
         end
         def show_venues
-            binding.pry
-            BettyeVenues.all.each.with_index(1) do |betvenues|
-                puts "#{index}. #{betvenues.name}"
+            # binding.pry
+            BettyeVenues.all.each.with_index(1) do |betvenues, index|
+                puts "Your selection shows the venues are recommended for your next tour...\n
+                #{index}. #{betvenues.name}"
             end
             prompt_for_venue_choice
         end
@@ -69,4 +73,4 @@ module TourBettyeMenu
             puts BettyeVenues.all[@input.to_i - 1].summary
         end
     end
-end
+# end

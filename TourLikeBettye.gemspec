@@ -1,7 +1,8 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "TourLikeBettye/version"
-require 'open-uri'
+
+
 Gem::Specification.new do |spec|
   spec.name          = "TourLikeBettye"
   spec.version       = TourLikeBettye::VERSION
@@ -34,6 +35,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 12.3.3"
   spec.add_development_dependency "rspec", "~> 3.2"
   spec.add_development_dependency "pry"
-  spec.add_dependency 'open-uri'
+  # spec.add_dependency 'open-uri'
   spec.add_dependency "nokogiri"
 end

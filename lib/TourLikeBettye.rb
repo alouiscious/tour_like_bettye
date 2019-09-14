@@ -1,16 +1,20 @@
 require "TourLikeBettye/version"
-
+require "TourLikeBettye/cli"
+require "TourLikeBettye/scraper"
+require "TourLikeBettye/tour"
 module TourLikeBettye
-  class Error < StandardError; end
-  class
-    attr_accessor :name, :age, :location, :user_name
+  
+  class TourBettye
+    attr_accessor :venue_name, :city, :description, :capacity
  
-    def initialize(user_name:, name:, age:, location:)
-      @user_name = user_name
-      @name = name
-      @location = location
-      @age = age
+    def initialize(venue_name, city, description, capacity)
+      @venue_name = venue_name 
+      @city = city
+      @description = description
+      @capacity = capacity
     end
   end 
-  end
+
+
+  class Error < StandardError; end
 end
