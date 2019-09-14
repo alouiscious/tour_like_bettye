@@ -15,6 +15,7 @@ class BettyeScraper
             tour_location_venu = tour.text.strip.gsub("at", "").split("  ")
             tour_object.location  = tour_location_venu[0]
             tour_object.venue = tour_location_venu[2]
+            # binding.pry
         end
         # "JAMBASE IS IN USE ABOVE"
     end

@@ -5,30 +5,32 @@ require 'pry'
 # require 'nokogiri'
 
 
-puts "Hello from VenuesList::Tour"
+puts "Hello from Bettye's Venues Tour List (tour.rb)"
 
 # module Venues
     class Tour
         attr_accessor :venue, :location, :description, :capacity
        
-        @@all_venues = []
+        @@all_venues = [venue= "nil"]
 
-        def initialize(venue, location)
+        def initialize
             @@all_venues << self
-            # @venue_name = venue_name
-            # @description = description
+            # binding.pry
+ 
         end
        
-        
         def self.all
             @@all_venues ||= self.load #otherwise
         end
 
         def self.bettye_tours
-            @@all.select {|tour| tour_object.location == "" || tour_object.venue == ""}
+            @@all_venues.select {|tour| tour_object.location == "" || tour_object.venue == ""}
         end
 
-
+# ADD SELF.LOAD DEF
+        def self.load
+            @@all_venues
+        end
         # def self.past_events
         #     @@bettyes_venues.select{|venue| venue.date < time.now}
         # end

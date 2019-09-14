@@ -6,7 +6,7 @@ require_relative './scraper'
         
         def start #these are things that only run once
 
-            puts "Welcome to the Tour Like Bettye app!\n
+            puts "Welcome to the Tour Like Bettye app! (cli)\n
             This program is here to help music performers tour like a pro."
             # binding.pry
             BettyeScraper.bettye_venue_list
@@ -16,7 +16,7 @@ require_relative './scraper'
 
         def menu
             while @input != "exit" && @input != "quit"
-                get_input(["1", "2", "3", "4"])
+                get_input(valid_choices:["1", "2", "3", "4", 'menu', 'exit', 'quit'])
                 if @input == "menu"
                     menu
                 elsif @input == "1"
@@ -57,9 +57,9 @@ require_relative './scraper'
 
         end
         def show_venues
-            # binding.pry
-            BettyeVenues.all.each.with_index(1) do |betvenues, index|
-                puts "Your selection shows the venues are recommended for your next tour...\n
+
+            Tour.all.each.with_index(1) do |betvenues, index|
+            puts "Your selection shows the venues are recommended for your next tour...\n
                 #{index}. #{betvenues.name}"
             end
             prompt_for_venue_choice
