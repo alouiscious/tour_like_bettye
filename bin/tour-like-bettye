@@ -1,11 +1,14 @@
 #!/usr/bin/env ruby
 
 puts "Hello World (exec)"
-# rename with project name  for user ease
+# rename with project name - for user ease
 
 require "bundler/setup"
 require_relative "../lib/TourLikeBettye"
 
 
 
-CLI.new.start
+TourLikeBettye::CLI.new.start
+# use this module in every doc and place every class inside the module.
+# Using a module name allows class calls to only need the class name (not the whole prefix module TourLikeBettye::class_name).
+# Using a module prevent naming issues with class names (especially once the gemis on someone elses computer).

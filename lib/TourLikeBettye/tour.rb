@@ -1,36 +1,43 @@
 require 'pry'
-# require "bundler"
-# require "bundler/setup"
-# # require "../lib/venues_list.rb"
+require_relative './scraper.rb'
+require_relative './cli.rb'
+
 # require 'nokogiri'
 
 
 puts "Hello from Bettye's Venues Tour List (tour.rb)"
 
-# module Venues
+module TourLikeBettye
     class Tour
         attr_accessor :venue, :location, :description, :capacity
-       
-        @@all_venues = [venue= "nil"]
 
-        def initialize
-            @@all_venues << self
-            # binding.pry
- 
-        end
-       
+        def initialize(venue = "Lincoln Center of the Arts", location = "Washington, DC")
+            @venue = venue
+            @location = location
+        end  
+
+        @@all_venues = [
+            Tour.new(venue= "Lincoln Center of the Arts", location= "Washington, DC")
+        ]        
+     
+        # binding.pry
         def self.all
             @@all_venues ||= self.load #otherwise
+        end
+
+        def self.load
+            CLI.get_venues
+        end
+        
+        def save
+            @@all_venues << self
+
         end
 
         def self.bettye_tours
             @@all_venues.select {|tour| tour_object.location == "" || tour_object.venue == ""}
         end
 
-# ADD SELF.LOAD DEF
-        def self.load
-            @@all_venues
-        end
         # def self.past_events
         #     @@bettyes_venues.select{|venue| venue.date < time.now}
         # end
@@ -39,4 +46,4 @@ puts "Hello from Bettye's Venues Tour List (tour.rb)"
         #     @@bettyes_venues.select{|venue|venue.date >= time.now}
         # end
     end
-# end
+end
