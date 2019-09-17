@@ -1,30 +1,51 @@
-# link to api or...
-# scrape with nokogiri
-# parse from json to ruby
+
+require 'pry'
 require 'open-uri'
 require 'nokogiri'
-require 'pry'
+
 
 module TourLikeBettye
-
     class BettyeScraper
 
         def self.bettye_venue_list
-            jambase_noko = Nokogiri::HTML(open("https://www.jambase.com/band/bettye-lavette/past-shows"))      # .text.split
-            bettyetours = jambase_noko.css('div.col-event-info')
-            # binding.pry
-            bettyetours.each do |tour|
-                # binding.pry
-                tour_object = Tour.new      # creates a new tour object to assign attributes 
-                tour_location_venue = tour.text.strip.gsub("at", "").split("  ")
-                tour_object.location  = tour_location_venue[0]  # venue object attribute for tours 
-                tour_object.venue = tour_location_venue[2]      # location object attribute for venue
-                # binding.pry
+            jambase_noko = Nokogiri::HTML(open("https://www.jambase.com/band/bettye-lavette/past-shows"))
+            
+            jambase_noko.css('div.col-event-info').map do |bettye_tours|
+
+                tour = bettye_tours.text.strip.gsub("at", "").split("  ")       #.text.strip.gsub("at", "").split("  ")
+
+                    venue = tour[2]   # venue object attribute for tours 
+                    location  = tour[0] # location object attribute for venue
+                    description = tour[1]  # 
+                    talent = (tour[3] != nil) ? tour[3] : 'no additional details'       # talent = tour[3]
+                    Tour.new(venue, location, description, talent)      # creates a new tour object to assign attributes 
+
             end
-
-
             # "JAMBASE IS IN USE ABOVE"
+
+
         end
+
+
+        # def self.bettye_venue_list
+        #     jambase_noko = Nokogiri::HTML(open("https://www.jambase.com/band/bettye-lavette/past-shows"))
+            
+        #     jambase_noko.css('div.col-event-info').map do |bettye_tours|
+                
+        #         bettye_tours.each do |tour|
+        #             bettye_tours.text.strip.gsub("at", "").split("  ")       #.text.strip.gsub("at", "").split("  ")
+        #             tour_location_venue = tour
+        #             # binding.pry
+        #             location  = tour_location_venue[0]  # venue object attribute for tours 
+        #             venue = tour_location_venue[2]      # location object attribute for venue
+        #         end
+        #         Tour.new(venue, location, description, capacity)      # creates a new tour object to assign attributes 
+
+        #     end
+
+
+        #     # "JAMBASE IS IN USE ABOVE"
+        # end
 
     end
             # bettye_noko = Nokogiri::HTML(open('http://www.bettyelavette.com/tour'))

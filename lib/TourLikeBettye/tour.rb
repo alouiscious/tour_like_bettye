@@ -1,37 +1,36 @@
-require 'pry'
 require_relative './scraper.rb'
 require_relative './cli.rb'
+require 'pry'
+require 'colorize'
 
-# require 'nokogiri'
 
-
-puts "Hello from Bettye's Venues Tour List (tour.rb)"
+puts "\n\nHello from Bettye's Venues Tour List (tour.rb)"
 
 module TourLikeBettye
     class Tour
-        attr_accessor :venue, :location, :description, :capacity
+        attr_accessor :venue, :location, :description, :talent
+        @@all_venues = []
 
-        def initialize(venue = "Lincoln Center of the Arts", location = "Washington, DC")
+        def initialize(venue, location, description, talent=nil)
             @venue = venue
             @location = location
+            @description = description
+            @talent = talent
+            save
+
         end  
 
-        @@all_venues = [
-            Tour.new(venue= "Lincoln Center of the Arts", location= "Washington, DC")
-        ]        
-     
-        # binding.pry
+        def save
+            @@all_venues << self
+
+        end
+
         def self.all
             @@all_venues ||= self.load #otherwise
         end
 
         def self.load
             CLI.get_venues
-        end
-        
-        def save
-            @@all_venues << self
-
         end
 
         def self.bettye_tours
