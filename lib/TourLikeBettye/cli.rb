@@ -17,7 +17,7 @@ module TourLikeBettye
 
         def menu
  
-            until @input == 'exit' || @input || 'quit' || @input == 'q'
+            # until @input == 'exit' || @input || 'quit' || @input == 'q'
                 get_input(valid_choices: [(1..Tour.all.length), 'menu', 'exit', 'quit', 'y', 'q'])
                 
                 if @input == "menu"
@@ -44,7 +44,7 @@ module TourLikeBettye
                     puts "\nSorry your entry ('#{@input}') is not valid.\nPlease try the menu items again.\n"
                     menu    # good way to set up recursion
                 end 
-            end
+            # end
         end
 
         
