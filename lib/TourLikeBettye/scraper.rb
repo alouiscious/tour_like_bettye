@@ -1,4 +1,4 @@
-
+require 'colorize'
 require 'pry'
 require 'open-uri'
 require 'nokogiri'
@@ -12,7 +12,7 @@ module TourLikeBettye
             
             jambase_noko.css('div.col-event-info').map do |bettye_tours|
                 tour = bettye_tours.text.strip.gsub("at", "").split("  ") 
-                    venue = tour[2].strip   
+                    venue = tour[2]   
                     location  = tour[0] 
                     description = tour[1]  
                     talent = (tour[3] != nil) ? tour[3] : 'no additional details'      
