@@ -45,7 +45,6 @@ module TourLikeBettye
 
         def menu
             if @input.to_i <= Tour.all.length
-                binding.pry
                 puts "Here's the details about #{Tour.all[@index]}"
                 p Tour.all[@index].join(",")
                 prompt_for_venue_choice
