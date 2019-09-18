@@ -12,10 +12,10 @@ module TourLikeBettye
         @@all_venues = []
 
         def initialize(venue, location, description, talent=nil)
-            @venue = venue
-            @location = location
+            @venue = venue.strip
+            @location = location.strip
             @description = description
-            @talent = talent
+            @talent = talent.strip
             save
 
         end  
