@@ -18,7 +18,6 @@ module TourLikeBettye
                     description = tour[1]  
                     talent = (tour[3] != nil) ? tour[3] : 'no additional details'      
                     Tour.new(venue, location, description, talent) 
-                    # binding.pry
                 end
             end
         end
