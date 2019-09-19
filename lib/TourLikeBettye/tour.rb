@@ -4,20 +4,28 @@ require 'pry'
 require 'colorize'
 
 
-puts "\n\nHello from Bettye's Venues Tour List (tour.rb)"
 
 module TourLikeBettye
     class Tour
         attr_accessor :venue, :location, :description, :talent
         @@all_venues = []
 
+        # def initialize(attributes)
+        #     attributes.each do |key, value|
+        #         # binding.pry
+        #         Tour.send("#{key.to_s}=", value)
+        #     end
+        #     save
+
+        # end  
+
         def initialize(venue, location, description, talent=nil)
             @venue = venue.strip
             @location = location.strip
             @description = description
             @talent = talent.strip
+            
             save
-
         end  
 
         def save
@@ -30,7 +38,7 @@ module TourLikeBettye
         end
 
         def self.load
-            CLI.get_venues
+            CLI.venue_menu
         end
 
         def self.bettye_tours

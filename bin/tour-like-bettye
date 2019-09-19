@@ -1,12 +1,7 @@
 #!/usr/bin/env ruby
 
-puts "Hello World (exec)"
-# rename with project name - for user ease
-
 require "bundler/setup"
 require_relative "../lib/TourLikeBettye"
-
-
 
 TourLikeBettye::CLI.new.start
 # use this module in every doc and place every class inside the module.
