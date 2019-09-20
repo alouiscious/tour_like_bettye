@@ -15,12 +15,12 @@ Gem::Specification.new do |spec|
     and ideal regions and timelines to play them. Connect with venues straight away.\n
         using bettye's and jam base web site. Know whose booking these venues.\n Discover important A/V logistics right down to stage door, green room, and parking.
 }
-  spec.homepage      = "https://alloiusciousmedia.com"
+  spec.homepage      = "https://aloiusciousmedia.com"
 
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/alouiscious/tour_like_bettye"
-  spec.metadata["changelog_uri"] = "https://github.com/alouiscious/tour_like_bettye/mission_rd/CHANGELOG.md."
+  spec.metadata["changelog_uri"] = "https://github.com/alouiscious/tour_like_bettye/mission_rd/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
