@@ -13,7 +13,6 @@ module TourLikeBettye
             jambase_noko.css('div.col-event-info').map do |bettye_tours|
                 formatter = bettye_tours.text.strip.gsub("Bettye LaVette ", " ")
                 tour = formatter.strip.gsub("at", "").split("  ")
-                binding.pry
                 venue = (tour[2] != nil) ? tour[2].strip : tour[1].strip  
                 location  = tour[0].strip 
                 description = tour[1].strip  

@@ -1,7 +1,6 @@
 require_relative './scraper.rb'
 require_relative './cli.rb'
 require 'pry'
-require 'colorize'
 
 
 
