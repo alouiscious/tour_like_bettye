@@ -18,7 +18,9 @@ module TourLikeBettye
 
         def venue_menu
             puts "\nThese venues are highly recommended for your next tour...\n"
-            Tour.all.each.with_index(1).uniq do |betvenues, index|
+            Tour.all.each.with_index(1) do |betvenues, index|
+                # binding.pry
+
                 @choices = "#{index}. #{betvenues.venue}"
                 puts @choices.colorize(:red)
             end

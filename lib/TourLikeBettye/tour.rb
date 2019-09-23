@@ -34,6 +34,11 @@ module TourLikeBettye
 
         def self.all
             @@all_venues ||= self.load #otherwise
+
+            @@all_venues.uniq{|extra| extra.venue}
+                            # binding.pry
+            
+
         end
 
         def self.load
