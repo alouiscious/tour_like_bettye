@@ -49,7 +49,7 @@ module TourLikeBettye
 
         def list_venue
             if @input.to_i <= Tour.all.length
-                puts "\nVenue ##{@input}: The #{Tour.all[@index].venue} venue: ".colorize(:blue)
+                puts "\nVenue ##{@input}: The #{Tour.all[@index].venue} ".colorize(:blue)
                 puts "It's located in #{Tour.all[@index].location}. \n"
                 puts "\nIf available below, additional details may include...".colorize(:blue)
                 puts "   other talent's sucessful perfomances, or \n   the best time of year for you to book that venue."
